@@ -1,0 +1,17 @@
+Vishwam Shah is a highly motivated and skilled Computer Science professional currently pursuing a Master of Science degree in Computer Science at Florida State University, with a GPA of 3.91. He completed his Bachelor of Science in Computer Engineering from Gujarat Technological University in India, achieving a GPA of 3.9. His academic coursework and projects have focused on diverse areas such as Problem Solving, AI, Data Science, Cryptography, IoT, and Bioinformatics.
+
+In terms of professional experience, Vishwam has a strong background as a Full Stack Developer & DevOps Engineer at MaMo Technolabs LLP in Gujarat, India. He managed a team of four developers, served as a SCRUM master, and successfully launched multiple innovative products. His expertise includes utilizing a variety of technologies such as NodeJS, MongoDB, ExpressJS, ReactJS, AngularJS, AWS, PHP, C++, Dart, Flutter, and more. Vishwam demonstrated proficiency in integrating RESTful APIs, optimizing UIs, and deploying applications on cloud architecture to achieve accelerated page load times.
+
+Vishwam also has international experience as a Full Stack Intern at Paul Mason Consulting Limited in the UK and India, where he contributed to reducing voucher upload time and improved software deployment processes through continuous integration/continuous delivery (CI/CD) pipelines. Additionally, he served as a Back-End Intern at Akash Technolabs, contributing to the development of an interactive website with authentication APIs and CRUD operations.
+
+In the academic realm, Vishwam served as a Researcher in the Department of Psychology – Neuroscience at Florida State University, where he utilized technologies such as MATLAB, fMRIPrep, FreeSurfer, and more. His contributions included spearheading custom MATLAB scripts for raw fMRI data preprocessing and enhancing data quality by preprocessing datasets.
+
+As a Mentor at Women in Computer Science (WiCs), Vishwam played a pivotal role in empowering female students' participation in computer science. He architected the curriculum and mentored over 20 students, boosting their technical skills through hands-on workshops on full-stack development, AWS, and DevOps.
+
+Vishwam's technical skills span various languages and frameworks, including C++, AJAX, Firebase, Docker, HTML, CSS, Bootstrap, and more. He is proficient in cloud platforms such as Google Cloud Platform (GCP) and Amazon Web Services (AWS). His development and collaboration tools expertise includes Git, Trello, Notion, ClickUp, JIRA, and more.
+
+In the realm of certifications, Vishwam has completed certifications in Google Cloud Platform (GCP) Fundamentals, Essential Google Cloud Infrastructure, and Programming for Everybody (Getting Started with Python). He has also completed a certification in Python Data Structures.
+
+Vishwam's project experience includes Medical Image Segmentation using Python, TensorFlow, Keras, PyTorch, and OpenCV, where he applied a U-Net model for segmenting cell nuclei in microscopic images. He has also worked on optimizing K-Core Decomposition for Large-Scale Networks using Java, Perl, GraphChi, and WebGraph, achieving linear time complexity with less than 1% update rate within 20 iterations.
+
+Overall, Vishwam Shah possesses a well-rounded skill set, combining academic excellence, hands-on professional experience, and a strong commitment to mentoring and collaborative learning environments.
