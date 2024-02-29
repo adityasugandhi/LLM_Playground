@@ -1,9 +1,9 @@
 from haystack import Pipeline
 from haystack.utils import Secret
 from haystack_integrations.components.retrievers.chroma import ChromaQueryTextRetriever
-from haystack_integrations.components.generators.llama_cpp import LlamaCppGenerator
+# from haystack_integrations.components.generators.llama_cpp import LlamaCppGenerator
 from haystack.components.readers import ExtractiveReader
-from haystack.components.generators import GPTGenerator
+# from haystack.components.generators import GPTGenerator
 from haystack.components.builders.prompt_builder import PromptBuilder
 from haystack.components.builders.answer_builder import AnswerBuilder
 from haystack.components.generators import OpenAIGenerator
@@ -71,62 +71,62 @@ class Inferncer:
         results = extractive_qa_pipeline.run(input_data)
         return results
     
-    def LlamaCpp(self,query):
-        template = """
-    `    Answer the question using the provided context based on Aditya.
+    # def LlamaCpp(self,query):
+    #     template = """
+    # `    Answer the question using the provided context based on Aditya.
 
-        Context:
-        {% for doc in documents %}
-        {{ doc.content }}
-        {% endfor %}
-        Question: {{question}}
-        Answer:
-        """
-        self.InMemory_store = chroma_store_loader.InMemory_dataloader() 
-        prompt_builder = PromptBuilder(template=template)
-        retriever = InMemoryEmbeddingRetriever(document_store = self.InMemory_store)
-        #ExtractiveReader to extract answers from the relevant context
+    #     Context:
+    #     {% for doc in documents %}
+    #     {{ doc.content }}
+    #     {% endfor %}
+    #     Question: {{question}}
+    #     Answer:
+    #     """
+    #     self.InMemory_store = chroma_store_loader.InMemory_dataloader() 
+    #     prompt_builder = PromptBuilder(template=template)
+    #     retriever = InMemoryEmbeddingRetriever(document_store = self.InMemory_store)
+    #     #ExtractiveReader to extract answers from the relevant context
 
-        llm = LlamaCppGenerator(
-        model_path="openchat-3.5-1210.Q3_K_S.ggml",  
-        n_ctx=30000,
-        n_batch=256,
-        model_kwargs={"n_gpu_layers": 2, "main_gpu": 1},
-        generation_kwargs={"max_tokens": 250, "temperature": 0.7},
-        )
-        llm.warm_up()
+    #     llm = LlamaCppGenerator(
+    #     model_path="openchat-3.5-1210.Q3_K_S.ggml",  
+    #     n_ctx=30000,
+    #     n_batch=256,
+    #     model_kwargs={"n_gpu_layers": 2, "main_gpu": 1},
+    #     generation_kwargs={"max_tokens": 250, "temperature": 0.7},
+    #     )
+    #     llm.warm_up()
 
-        # reader = ExtractiveReader(model="deepset/roberta-base-squad2-distilled",)
-        extractive_qa_pipeline = Pipeline()
-        text_embedder = SentenceTransformersTextEmbedder(model="sentence-transformers/all-MiniLM-L6-v2")
-        extractive_qa_pipeline.add_component('text_embedder', text_embedder)    
-        extractive_qa_pipeline.add_component("retriever", retriever)
-        # extractive_qa_pipeline.add_component("reader",reader)
+    #     # reader = ExtractiveReader(model="deepset/roberta-base-squad2-distilled",)
+    #     extractive_qa_pipeline = Pipeline()
+    #     text_embedder = SentenceTransformersTextEmbedder(model="sentence-transformers/all-MiniLM-L6-v2")
+    #     extractive_qa_pipeline.add_component('text_embedder', text_embedder)    
+    #     extractive_qa_pipeline.add_component("retriever", retriever)
+    #     # extractive_qa_pipeline.add_component("reader",reader)
         
-        extractive_qa_pipeline.add_component(instance=prompt_builder,   name="prompt_builder")
-        extractive_qa_pipeline.add_component("llm", llm)
-        # extractive_qa_pipeline.add_component(instance=AnswerBuilder(), name="answer_builder")
+    #     extractive_qa_pipeline.add_component(instance=prompt_builder,   name="prompt_builder")
+    #     extractive_qa_pipeline.add_component("llm", llm)
+    #     # extractive_qa_pipeline.add_component(instance=AnswerBuilder(), name="answer_builder")
 
-        # extractive_qa_pipeline.connect("retriever.documents", "reader")
-        extractive_qa_pipeline.connect("text_embedder.embedding", "retriever.query_embedding")
-        extractive_qa_pipeline.connect("retriever.documents", "prompt_builder.documents")     
-        extractive_qa_pipeline.connect("prompt_builder", "llm")
-        # extractive_qa_pipeline.connect("llm.replies", "answer_builder.replies")
-        # extractive_qa_pipeline.connect("retriever", "answer_builder.documents")
+    #     # extractive_qa_pipeline.connect("retriever.documents", "reader")
+    #     extractive_qa_pipeline.connect("text_embedder.embedding", "retriever.query_embedding")
+    #     extractive_qa_pipeline.connect("retriever.documents", "prompt_builder.documents")     
+    #     extractive_qa_pipeline.connect("prompt_builder", "llm")
+    #     # extractive_qa_pipeline.connect("llm.replies", "answer_builder.replies")
+    #     # extractive_qa_pipeline.connect("retriever", "answer_builder.documents")
 
-        # Define the input data for the pipeline components
-        input_data = {
-            "text_embedder": {"text": query},
-            # "retriever": {"query": query, "top_k": 3},
-            # "reader": {"query": query},
-            "prompt_builder": {"question": query},
-            # "answer_builder": {"query": query},
-            # Use 'max_tokens' instead of 'max_new_tokens'
-        }
+    #     # Define the input data for the pipeline components
+    #     input_data = {
+    #         "text_embedder": {"text": query},
+    #         # "retriever": {"query": query, "top_k": 3},
+    #         # "reader": {"query": query},
+    #         "prompt_builder": {"question": query},
+    #         # "answer_builder": {"query": query},
+    #         # Use 'max_tokens' instead of 'max_new_tokens'
+    #     }
 
-        # Run the pipeline with the updated input data
-        results = extractive_qa_pipeline.run(input_data)
-        return results
+    #     # Run the pipeline with the updated input data
+    #     results = extractive_qa_pipeline.run(input_data)
+    #     return results
 
 
 
