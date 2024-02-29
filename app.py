@@ -11,7 +11,8 @@ inferencer = Inferncer()
 data_loader = DataLoader()
 
 # Initialize chroma_store as a global variable
-chroma_store = data_loader.chroma_store
+chroma_store = data_loader.dataloader()
+in_memory_store = data_loader.InMemory_dataloader()
 
 @app.route("/")
 def home():
@@ -36,12 +37,14 @@ def upload_document():
     
 @app.route("/sync_and_run_dataloader", methods=["POST"])
 def sync_and_run_dataloader():
-    global chroma_store  # Access the global chroma_store variable
+    global chroma_store 
+    global in_memory_store# Access the global chroma_store variable
     try:
         # Optionally, you can add authentication or other checks here
 
         # Call the dataloader function
         chroma_store = data_loader.dataloader()
+        in_memory_store = data_loader.InMemory_dataloader()
 
         return jsonify({"message": "DataLoader executed successfully", "result": "success"})
 
