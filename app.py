@@ -11,9 +11,10 @@ inferencer = Inferncer()
 data_loader = DataLoader()
 
 # Initialize chroma_store as a global variable
-chroma_store = data_loader.dataloader()
-in_memory_store = data_loader.InMemory_dataloader()
-
+# chroma_store = data_loader.dataloader()
+# in_memory_store = data_loader.InMemory_dataloader()
+chroma_store = None
+in_memory_store = None
 @app.route("/")
 def home():
     return "Welcome to the Flask app!"
