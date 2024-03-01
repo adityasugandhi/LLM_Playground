@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from Inferencer import Inferncer
 from dataloader import DataLoader
-
+import logging
 app = Flask(__name__)
 
 UPLOAD_FOLDER = './data/'
@@ -10,11 +10,18 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 inferencer = Inferncer()
 data_loader = DataLoader()
 
+#app logger
+
+log_format = "%(asctime)s [%(levelname)s] - %(message)s"
+logging.basicConfig(filename="app.log", level=logging.DEBUG, format=log_format)
+logger = logging.getLogger(__name__)
+
 # Initialize chroma_store as a global variable
 # chroma_store = data_loader.dataloader()
 # in_memory_store = data_loader.InMemory_dataloader()
 chroma_store = None
 in_memory_store = None
+
 @app.route("/")
 def home():
     return "Welcome to the Flask app!"
