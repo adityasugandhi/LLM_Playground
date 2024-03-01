@@ -36,7 +36,7 @@ def upload_document():
     except Exception as e:
         return jsonify({"error": str(e)})
     
-@app.route("/sync_and_run_dataloader", methods=["POST"])
+@app.route("/sync", methods=["POST"])
 def sync_and_run_dataloader():
     global chroma_store 
     global in_memory_store# Access the global chroma_store variable
