@@ -57,4 +57,4 @@ StranzersWeb Inc proudly presents its innovative Personal Large Language Model (
 
 ## System Design
 
-![Systems Design](SystemDesign.png)
+![Local Image]("SystemDesign.png")
